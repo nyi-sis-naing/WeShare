@@ -23,10 +23,10 @@ app.use(express.json());
 if (process.env.MONGO_URI) {
   mongoose
     .connect(process.env.MONGO_URI)
-    .then(() => console.log('MongoDB Connected successfully'))
-    .catch((err) => console.error('MongoDB connection error:', err));
+    .then(() => console.log('✅ MongoDB Connected successfully to database'))
+    .catch((err) => console.error('❌ MongoDB connection error:', err));
 } else {
-  console.warn('Warning: MONGO_URI not found in environment variables');
+  console.warn('⚠️ Warning: MONGO_URI not found in environment variables');
 }
 
 // API Routes
@@ -38,8 +38,13 @@ app.use('/api/balances', balanceRoutes);
 
 // Health check route
 app.get('/', (req, res) => {
+  const dbStates = ['disconnected', 'connected', 'connecting', 'disconnecting'];
+  const state = dbStates[mongoose.connection.readyState] || 'unknown';
+
   res.json({
     status: 'online',
+    database: state,
+    hasMongoUri: !!process.env.MONGO_URI,
     message: 'WeShare API is running smoothly',
     endpoints: {
       auth: '/api/auth',
