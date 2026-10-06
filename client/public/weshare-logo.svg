@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b253a" />
+      <stop offset="100%" stop-color="#011627" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7fdbca" />
+      <stop offset="100%" stop-color="#82aaff" />
+    </linearGradient>
+    <linearGradient id="innerGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7fdbca" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#82aaff" stop-opacity="0.08" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Tile -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="#1d3b53" stroke-width="2.5"/>
+  <rect x="5" y="5" width="54" height="54" rx="13" fill="url(#innerGlow)"/>
+
+  <!-- Top Arrow (Teal - Right) -->
+  <path d="M18 24H44M44 24L35 15M44 24L35 33" stroke="#7fdbca" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Bottom Arrow (Periwinkle Blue - Left) -->
+  <path d="M46 40H20M20 40L29 31M20 40L29 49" stroke="#82aaff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
